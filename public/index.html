@@ -15,8 +15,24 @@
     <!-- TAILWINDCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="mx-4">
-    <h1 class="font-bold text-2xl text-red-500">Roses are red</h1>
+  <body class="mx-4 capitalize">
+    <div class="text-center">
+      <h1 class="text-2xl font-bold capitalize my-5">Simple request example</h1>
+      <button
+        hx-get="/users"
+        hx-trigger="click"
+        hx-swap="outerHTML"
+        class="mx-auto text-center bg-blue-500 py-2 px-3 rounded-lg text-white"
+      >
+        fetch users
+      </button>
+
+      <span class="hidden">
+        <img src="img/loader.gif" alt="loading" class="h-10 mx-auto" />
+      </span>
+    </div>
+    <!-- TESTS -->
+    <!-- <h1 class="font-bold text-2xl text-red-500">Roses are red</h1>
     <h1 class="font-bold text-2xl text-blue-500 mx-auto text-center">
       Violet are red
     </h1>
@@ -26,6 +42,6 @@
 
     <footer class="relative bottom-0 mx-auto text-center">
       <p>this app is spined up with HTMX</p>
-    </footer>
+    </footer> -->
   </body>
 </html>
