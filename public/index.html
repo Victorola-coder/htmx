@@ -15,33 +15,54 @@
     <!-- TAILWINDCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="mx-4 capitalize">
-    <div class="text-center">
-      <h1 class="text-2xl font-bold capitalize my-5">Simple request example</h1>
-      <button
-        hx-get="/users"
-        hx-trigger="click"
-        hx-swap="outerHTML"
-        class="mx-auto text-center bg-blue-500 py-2 px-3 rounded-lg text-white"
-      >
-        fetch users
-      </button>
-
-      <span class="hidden">
-        <img src="img/loader.gif" alt="loading" class="h-10 mx-auto" />
+  <body class="bg-blue-900">
+    <div class="container mx-auto py-8 max-w-lg">
+      <span class="htmx-indicator">
+        <img
+          src="img/loader.gif"
+          alt="loading"
+          class="mx-auto h-10"
+          id="loading"
+        />
       </span>
-    </div>
-    <!-- TESTS -->
-    <!-- <h1 class="font-bold text-2xl text-red-500">Roses are red</h1>
-    <h1 class="font-bold text-2xl text-blue-500 mx-auto text-center">
-      Violet are red
-    </h1>
-    <h1 class="font-bold text-2xl text-yellow-500 text-end">
-      my day is ruined
-    </h1>
+      <div
+        class="max-w-lg m-auto bg-gray-900 text-white p-4 border border-gray-600 rounded-lg"
+      >
+        <h4 class="text-2xl capitalize mb-3 text-center">search contacts</h4>
+        <input
+          type="search"
+          class="border border-gray-600 bg-gray-800 p-2 rounded-lg w-full mb-5"
+          name="search"
+          id="search"
+          placeholder="begin typing to search users..."
+          hx-post="/search"
+          hx-trigger="input changed delay:500ms, search"
+          hx-target="#search-results"
+          hx-indicator="#loading"
+        />
 
-    <footer class="relative bottom-0 mx-auto text-center">
-      <p>this app is spined up with HTMX</p>
-    </footer> -->
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-800 text-white">
+            <tr>
+              <th
+                scope="col"
+                class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider"
+              >
+                Name
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider"
+              >
+                Email
+              </th>
+            </tr>
+          </thead>
+          <tbody id="search-results" class="divide-y divide-gray-600">
+            <!-- search results -->
+          </tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
