@@ -21,13 +21,16 @@
       <button
         hx-get="/users"
         hx-trigger="click"
-        hx-swap="outerHTML"
-        class="mx-auto text-center bg-blue-500 py-2 px-3 rounded-lg text-white"
+        hx-target="#users"
+        hx-indicator="#loading"
+        hx-vals='{"limit": 5}'
+        class="mx-auto text-center bg-blue-500 py-2 px-3 rounded-lg text-white trnsition-all duration-300 active:scale-[0.96] cursor-pointer"
       >
         fetch users
       </button>
+      <div id="users"></div>
 
-      <span class="hidden">
+      <span id="loading" class="htmx-indicator">
         <img src="img/loader.gif" alt="loading" class="h-10 mx-auto" />
       </span>
     </div>
