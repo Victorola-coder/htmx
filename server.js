@@ -36,26 +36,20 @@ app.post("/search", (req, res) => {
     return name.includes(searchTerm) || email.includes(searchTerm);
   });
 
-  
-  
-  setTimeout(()=>{
-    
+  setTimeout(() => {
     const searchResultHtml = searchResults
       .map(
         (contact) => `
-    <tr>
-  
-    <td><div class="my-4 p-2>${contact.name}</div</td>
-    <td><div class="my-4 p-2>${contact.email}</div</td>
-    </tr>
-    
-    `
+        <tr>
+          <td><div class="my-4 p-2">${contact.name}</div></td>
+          <td><div class="my-4 p-2">${contact.email}</div></td>
+        </tr>
+      `
       )
       .join("");
 
-      
-      res.send(searchResultHtml);
-    }, 1000)
+    res.send(searchResultHtml);
+  }, 1000);
 });
 
 // Start the server
